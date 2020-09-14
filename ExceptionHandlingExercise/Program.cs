@@ -8,6 +8,27 @@ namespace ExceptionHandlingExercise
     {
         static void Main(string[] args)
         {
+            
+            var arr = new char[] { '1', '2', '3', '4', '5', '6', 'A', 'B', 'C' };
+            var numbers = new List<int>();
+            var str = "";
+           
+            foreach (var item in arr)
+            {
+                try
+                {
+                    str = item.ToString();
+                    var number = int.Parse(str);
+                    numbers.Add(number);
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine($"Unable to Parse '{item}'");
+                }
+            }
+            numbers.ForEach(x => Console.WriteLine(x));
+
+
             // -----------------------------------------------------------------------------
             // First create an char[], it must contain 6 numbers and 3 letters - name it arr
 
@@ -19,30 +40,10 @@ namespace ExceptionHandlingExercise
             // and Exceptions will be thrown 
             // Below we will set this up 
             // ------------------------------------------------------------------------------
-            var arr = new char[] { '1', '2', '3', '4', '5', '6', 'A', 'B', 'C' };
-            var numbers = new List<int>();
-            var str = "";
-
-
-
-
 
             //TODO START HERE:
 
             // Make a foreach loop to iterate through your character array
-            foreach (var item in arr)
-            {
-                try
-                {
-                    str = item.ToString();
-                    var number = int.Parse(str);
-                    numbers.Add(number);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine($"Unable to Parse '{item}'");
-                }
-            }
             // Now create a try catch
 
 
@@ -56,7 +57,7 @@ namespace ExceptionHandlingExercise
 
             //Console.WriteLine($"Unable to Parse '{character}'"); //character will be the name of each item in your collection
 
-            numbers.ForEach(x => Console.WriteLine(x));
+
 
             //foreach (var num in numbers)
             //{
